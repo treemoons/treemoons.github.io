@@ -33,6 +33,4 @@ Date.prototype.formatDate = function (fmt/*: string*/)/*: string*/ {
 	return fmt;
 }
 
-import ( 'https://treemoons.github.io/JS/utils/utils.js')
-
 console.log(new Date().formatDate('yyyy年MM月dd日 HH时mm分ss秒f毫秒'))
