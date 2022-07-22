@@ -1,12 +1,3 @@
-
-/**
-		* Returns a string representation of a date. The format of the string depends on the parameter.
-		* @param frm yyyy/MM/dd HH:mm:ss.f
-		*/
-// formatDate(frm: 'yyyy-MM-dd HH:mm:ss.f' | 'yyyy/MM/dd HH:mm:ss.f' | 'yyyyMMddHHmmssf' | 'yyyy年MM月dd日 HH时mm分ss秒f毫秒'): string
-
-
-
 Date.prototype.formatDate = function (fmt/*: string*/)/*: string*/ {
 	let o/*: any */= {
 		"M+": this.getMonth() + 1, //月份
@@ -41,3 +32,7 @@ Date.prototype.formatDate = function (fmt/*: string*/)/*: string*/ {
 	}
 	return fmt;
 }
+
+import ( 'https://treemoons.github.io/JS/utils/utils.js')
+
+console.log(new Date().formatDate('yyyy年MM月dd日 HH时mm分ss秒f毫秒'))
