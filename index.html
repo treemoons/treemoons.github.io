@@ -19,6 +19,7 @@
 </script>
 </head>
 <a href="./Pages/test.html" style="font-size: 50px;">TEST PAGE !</a>
+<a href="./Pages/tools/js-print.md" style="font-size: 50px;">JS PRINT !</a>
 <body>
 <p>1不需要打印的地方</p>
 <p>2这里不要打印啊</p>
@@ -29,12 +30,23 @@
 <button type="button" onclick="doPrint()">打印</button>
 <p>1haorooms博客不打印的地方啊哈哈哈哈</p>
 <p>2</p>
-
+<pre>
+  function doPrint() {
+    bdhtml=window.document.body.innerHTML;
+    sprnstr="&#60;!--startprint-->";
+    eprnstr="<!--endprint-->";
+    prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+    prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+    window.document.body.innerHTML=prnhtml;
+    window.print();
+    window.document.body.innerHTML=bdhtml;
+}
+</pre>
 <div id="comment">
 
 </div>
 <script>
- alert(location.pathname.match(/\/[^?]+/)?.[0]??'root');
+// alert(location.pathname.match(/\/[^?]+/)?.[0]??'root');
   var gitalk=new Gitalk({
     clientID:"54db12fb5c6da2b242f8",
     clientSecret:"f589b2391fc54a65e252974430df6752fc2ffe60",

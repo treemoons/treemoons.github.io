@@ -1,14 +1,134 @@
+<!--
+Copyright Adam Pritchard 2013
+MIT License : http://adampritchard.mit-license.org/
+-->
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<div style="font-size: 100px;">
-		this is a test page.
-	</div>
-</body>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+
+
+		<style>
+			/* We don't really want to add styles to the preview because it might confuse
+     users when they are playing with their own styles. However, it's also
+     pretty confusing to show a serif font in the preview when email clients
+     almost always use a sans serif font by default.
+  */
+			body {
+				font-family: Arial, sans;
+			}
+		</style>
+	</head>
+
+	<!-- NOTE: The content of the <body> *must not* be indented or have comments,
+     otherwise it will affect the MD rendering. -->
+
+	<body contenteditable="true" data-i18n="preview_markdown">
+		<p style="font-family: 腾祥嘉丽细圆cjk;font-style: italic;"> FAFYAYaes</p>
+		<div class="gt-header">
+
+			<div class="gt-header-comment">
+				<textarea class="gt-header-textarea hide" placeholder="说点什么"
+					style="overflow: hidden scroll; overflow-wrap: break-word; resize: none; height: 72px;"></textarea>
+				<div class="gt-header-preview markdown-body ">
+				</div>
+				<div class="gt-header-controls"><a class="gt-header-controls-tip"
+						href="https://guides.github.com/features/mastering-markdown/" target="_blank"
+						rel="noopener noreferrer"><span class="gt-ico gt-ico-tip">
+							<button class="gt-btn gt-btn-preview" hidden><span class="gt-btn-text">编辑</span></button></div>
+			</div>
+		</div>
+		<xmp id="xmp">
+			```js
+			function syntaxHighlighting() {
+			var n = 33;
+			var s = "hello, こんにちは";
+			console.log(s);
+			}
+			```<br>
+			<br>
+			* plain<br>
+			* *emphasis*<br>
+			&nbsp; * **strong emphasis**<br>
+			&nbsp; &nbsp; * ~~strikethrough~~<br>
+			* `inline code`<br>
+			<br>
+			1. Numbered list<br>
+			&nbsp;&nbsp;&nbsp;1. Numbered sub-list<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Numbered sub-sub-list<br>\n
+			2. [Link](https://www.google.com)<br>
+			<br>
+			<br>
+			An image: ![Markdown Here
+			logo](https://raw.githubusercontent.com/adam-p/markdown-here/master/src/common/images/icon24.png)
+			<br>
+			<br>
+			> Block quote.&nbsp; <br>
+			> *With* **some** `markdown`.<br>
+			<br>
+			If **TeX Math** support is enabled, this is the quadratic equation:&nbsp;<br>
+			$-b \pm \sqrt{b^2 - 4ac} \over 2a$<br>
+			<br>
+			# Header 1<br>
+			## Header 2<br>
+			### Header 3<br>
+			#### Header 4<br>
+			##### Header 5<br>
+			###### Header 6<br>
+			&nbsp; <br>
+			| Tables | Are | Cool |<br>
+			| ------------- |:-------------:| -----:|<br>
+			| column 3 is | right-aligned | $1600 |<br>
+			| column 2 is | centered | $12 |<br>
+			| zebra stripes | are neat | $1 |<br>
+			<br>
+			Here's a horizontal rule:<br>
+			<br>
+			---<br>
+			<br>
+			```<br>
+			code block<br>
+			with no highlighting<br>
+			```<br>
+			<br>
+		</xmp>
+
+		<div id="comment">
+
+		</div>
+		<script>
+			//	alert(location.pathname.match(/\/[^?]+/)?.[0] ?? 'root');
+			var gitalk = new Gitalk({
+				clientID: "54db12fb5c6da2b242f8",
+				clientSecret: "f589b2391fc54a65e252974430df6752fc2ffe60",
+				repo: "treemoons.github.io",
+				owner: 'treemoons',
+				admin: ['treemoons'],
+				id: location.pathname ?? 'root',
+				distractionFreeMode: false
+			});
+			gitalk.render('comment');
+			var xmp = document.getElementById('xmp').innerText;
+			var textarea = document.querySelector('.gt-header-textarea');
+			textarea.value = xmp;
+
+
+
+
+			 function presskey(el,key) {
+				el.focus();
+				var evt=new KeyboardEvent('keydown',{key:'',location:0,"code":key,repeat:false,isComposing:false})
+				el.dispatchEvent(evt);
+			}
+			presskey(textarea,'Enter');
+			presskey(textarea,'Backspace');
+			document.querySelector('.gt-btn-preview').click();
+		</script>
+
+		</body>
+
 </html>
