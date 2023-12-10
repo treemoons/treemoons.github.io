@@ -14,18 +14,51 @@
         prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
         window.document.body.innerHTML=prnhtml;
         window.print();
-				window.document.body.innerHTML=bdhtml;
+		window.document.body.innerHTML=bdhtml;
 }
 </script>
 </head>
 <a href="./pages/test.html" style="font-size: 50px;">TEST PAGE !</a>
 <a href="./pages/tools/js-print.md" style="font-size: 50px;">JS PRINT !</a>
+<style> 
+@font-face {
+    font-family: xwcch;
+    src: url(./ming.ttf);
+}
+
+*{
+    font-family: xwcch;
+}
+</style>
 <body>
 <p>1不需要打印的地方</p>
-<p>2这里不要打印啊</p>
-<!--startprint--><!--注意要加上html里star和end的这两个标记，之前没加，一直没效果，谁叫咱们菜呢~-->
-<h1>打印标题</h1>
+<p>2這裏不要打印啊</p>
+	
+<p>
+	漢字，在當今語文中，地位無可取代。它是唯一廣泛通行的意音文字（logogram），每個構字有其字理依據，可上追字源，追蹤每個漢字背後的故事。由龜甲獸骨、鐘鼎禮器上圖形味甚重的漢字，發展至今天，漢字展現了多變的外貌。
+
+現在，進入了資訊爆炸的社會，漢字仍不失其生命力。今天大家使用的漢字，主要有兩大類：一是手寫體，由前人的楷書、行書書法演變而來，講求靈活的變化，展示執筆者的修爲，營造行間的氣韻；二是印刷體，亦活躍於各種電子屏幕，上宗中國蓬勃且領先全球的印刷術裏，所使用的彫版及活字造形，講求其清晰、理性，結構穩重而明目，筆畫井然且有理。
+
+按類別不同，兩種字在筆畫表現上，一向有所差異。手寫求活，有些筆畫趨於書寫時的便易；印刷求精，筆畫大多保留傳統理性。因此，印刷體的傳承文字，本以致力保留字理爲正道。
+
+「I.明體」依照傳承字形標準化文件《傳承字形部件檢校表》的推薦字形標準製作，力求遵從字理，展現傳承漢字構字的科學系統。同時，我們另備「I.明體異體」，呈現傳統印版字中常見的異體。
+少年
+	
+</p>
+<!--startprint-->
+<h1>打印標題</h1>
 <p class="p">打印内容~~</p>
+<p >
+	漢字，在當今語文中，地位無可取代。它是唯一廣泛通行的意音文字（logogram），每個構字有其字理依據，可上追字源，追蹤每個漢字背後的故事。由龜甲獸骨、鐘鼎禮器上圖形味甚重的漢字，發展至今天，漢字展現了多變的外貌。
+
+現在，進入了資訊爆炸的社會，漢字仍不失其生命力。今天大家使用的漢字，主要有兩大類：一是手寫體，由前人的楷書、行書書法演變而來，講求靈活的變化，展示執筆者的修爲，營造行間的氣韻；二是印刷體，亦活躍於各種電子屏幕，上宗中國蓬勃且領先全球的印刷術裏，所使用的彫版及活字造形，講求其清晰、理性，結構穩重而明目，筆畫井然且有理。
+
+按類別不同，兩種字在筆畫表現上，一向有所差異。手寫求活，有些筆畫趨於書寫時的便易；印刷求精，筆畫大多保留傳統理性。因此，印刷體的傳承文字，本以致力保留字理爲正道。
+
+「I.明體」依照傳承字形標準化文件《傳承字形部件檢校表》的推薦字形標準製作，力求遵從字理，展現傳承漢字構字的科學系統。同時，我們另備「I.明體異體」，呈現傳統印版字中常見的異體。
+少年
+	
+</p>
 <!--endprint-->
 <button type="button" onclick="doPrint()">打印</button>
 <p>1haorooms博客不打印的地方啊哈哈哈哈</p>
@@ -33,7 +66,7 @@
 <pre>
   function doPrint() {
     bdhtml=window.document.body.innerHTML;
-    sprnstr="&#60;!--startprint-->";
+    sprnstr="<!--startprint-->";
     eprnstr="<!--endprint-->";
     prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
     prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
